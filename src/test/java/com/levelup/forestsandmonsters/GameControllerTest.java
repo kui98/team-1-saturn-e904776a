@@ -43,11 +43,14 @@ public class GameControllerTest {
         GameController testObj = new GameController();
         testObj.avatar=mockCharacter;
         Mockito.when(mockCharacter.getCurrentPosition()).thenReturn(new Position(1,2));
-        
+        Mockito.when(mockCharacter.getMoveCount()).thenReturn(20);
         testObj.move(DIRECTION.NORTH);
         verify(mockCharacter).move(any(DIRECTION.class));
         assertTrue(testObj.avatar.getCurrentPosition().x ==1);
         assertTrue(testObj.avatar.getCurrentPosition().y ==2);
+         assertTrue(testObj.status.moveCount==20);
+         assertTrue(testObj.status.currentPosition.getX()==1);
+         assertTrue(testObj.status.currentPosition.getY()==2);
     }
 
 }

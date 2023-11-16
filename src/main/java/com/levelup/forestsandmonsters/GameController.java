@@ -50,8 +50,8 @@ public class GameController {
     public void move(DIRECTION directionToMove) {
         // TODO: Implement move - should call something on another class
         avatar.move(directionToMove);
-        status.currentPosition=new Point(avatar.getCurrentPosition().getX(), avatar.getCurrentPosition().getY());
-       
+         status.currentPosition=new Point(avatar.getCurrentPosition().getX(), avatar.getCurrentPosition().getY());
+         status.moveCount=avatar.getMoveCount();
         // TODO: Should probably also update the game results
     }
 
