@@ -59,6 +59,15 @@ public class CharacterTest {
      assertEquals(testObj.getCurrentPosition().y,6);
     }
 
+    @Test
+    public void ICanGetMyCharactersMoveCount(){
+        Character newCharacter = new Character();
+        GameMapDouble gameMap = new GameMapDouble();
+        newCharacter.gameMap=gameMap;
+        assertEquals(newCharacter.getMoveCount(), gameMap.getMoveCount());
+        assertEquals(4, gameMap.getMoveCount());
+    }
+
     
 
 }

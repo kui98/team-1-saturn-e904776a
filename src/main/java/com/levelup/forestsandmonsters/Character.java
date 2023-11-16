@@ -31,5 +31,9 @@ public class Character {
     public void move(GameController.DIRECTION direction){
         setCurrentPosition(gameMap.calculateNewPosition(currentPosition, direction));
     }
+
+    public int getMoveCount() {
+        return gameMap.getMoveCount();
+    }
     
 }

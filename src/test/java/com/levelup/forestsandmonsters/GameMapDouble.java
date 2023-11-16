@@ -11,5 +11,9 @@ public class GameMapDouble extends GameMap{
         pos.y=6;
         return pos;
     }
+    @Override
+    public int getMoveCount() {
+        return 4;
+    }
 
 }
