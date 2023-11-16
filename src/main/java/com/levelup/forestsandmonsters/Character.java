@@ -17,8 +17,12 @@ public class Character {
         return name;
     }
 
-    public Position getPosition(){
+    public Position getCurrentPosition(){
         return currentPosition;
+    }
+
+    public void setCurrentPosition(Position position){
+        this.currentPosition=position;
     }
     
 }
