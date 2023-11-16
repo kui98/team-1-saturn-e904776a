@@ -4,6 +4,12 @@ public class Position {
     int x = 5;
     int y = 5;
 
+    public Position(){};
+
+    public Position(int i, int j) {
+        this.x=i; y=j;
+    }
+
     public int getX() {
         return x;
 

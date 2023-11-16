@@ -56,5 +56,15 @@ public class PositionTest {
         assertEquals(position.getX(), 9);
 
     }
-}
 
+@Test
+    public void iCanCreateACustomPositionForXAndY() {
+        // arrange
+        // act
+        Position position = new Position(7,8);
+        // assert
+        assertEquals(position.getX(),7); 
+        assertEquals(position.getY(),8);
+    }
+}
+    
