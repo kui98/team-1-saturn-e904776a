@@ -18,4 +18,19 @@ public class CharacterTest {
         assertEquals(testObj.name, charName);
     }
 
+    @Test
+    public void getName(){
+        String charName = "New Name Saturn";
+        Character testObj = new Character(charName);
+        assertEquals(testObj.getName(), charName);
+    }
+
+    @Test
+    public void getPosition(){
+        Character testObj = new Character();
+        assertNotNull(testObj.getPosition());
+    }
+
+    
+
 }
