@@ -7,4 +7,7 @@ public class Character {
     {
         this.name = DEFAULT_NAME;
     }
+    public Character(String name){
+        this.name = name;
+    }
 }
