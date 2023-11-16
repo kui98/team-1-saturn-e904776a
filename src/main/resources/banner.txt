@@ -1,4 +1,13 @@
 -------------------------------------------------------------
+Start LEVEL UP GAMES
+-------------------------------------------------------------
+Welcome to Level Up Games
+Enter option 1 to create character
+Note:  Press ESC to exit game
+-------------------------------------------------------------
+
+TODO remove old text:
+-------------------------------------------------------------
 LEVEL UP GAMES
 -------------------------------------------------------------
 type 'help' to see a list of commands
