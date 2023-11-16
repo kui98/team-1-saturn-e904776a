@@ -5,7 +5,7 @@ import java.awt.Point;
 public class GameController {
 
     static final String DEFAULT_CHARACTER_NAME = "Character";
-
+    Character avatar;
     public class GameStatus {
         // TODO: Add other status data
         public String characterName = DEFAULT_CHARACTER_NAME;
@@ -28,11 +28,13 @@ public class GameController {
     // Pre-implemented to demonstrate ATDD
     // TODO: Update this if it does not match your design
     public void createCharacter(String name) {
+
         if (name != null && !name.equals("")) {
             status.characterName = name;
         } else {
             status.characterName = DEFAULT_CHARACTER_NAME;
         }
+        avatar=new Character(status.characterName);
     }
 
     public void startGame() {
@@ -47,6 +49,7 @@ public class GameController {
 
     public void move(DIRECTION directionToMove) {
         // TODO: Implement move - should call something on another class
+        avatar.move(directionToMove);
         // TODO: Should probably also update the game results
     }
 
