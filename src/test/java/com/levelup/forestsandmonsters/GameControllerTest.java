@@ -2,11 +2,13 @@ package com.levelup.forestsandmonsters;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import com.levelup.forestsandmonsters.GameController.DIRECTION;
 
@@ -40,9 +42,12 @@ public class GameControllerTest {
     public void moveCharacterTest(){
         GameController testObj = new GameController();
         testObj.avatar=mockCharacter;
+        Mockito.when(mockCharacter.getCurrentPosition()).thenReturn(new Position(1,2));
+        
         testObj.move(DIRECTION.NORTH);
         verify(mockCharacter).move(any(DIRECTION.class));
-        
+        assertTrue(testObj.avatar.getCurrentPosition().x ==1);
+        assertTrue(testObj.avatar.getCurrentPosition().y ==2);
     }
 
 }
