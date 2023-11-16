@@ -2,9 +2,10 @@ package com.levelup.forestsandmonsters;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.atLeast;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class CharacterTest {
     @Test
@@ -52,8 +53,10 @@ public class CharacterTest {
     @Test
     public void moveTest(){
         Character testObj = new Character();
-       // testObj.move(GameController.DIRECTION.NORTH);
-    
+        testObj.gameMap=new GameMapDouble();
+       testObj.move(GameController.DIRECTION.NORTH);
+       assertEquals(testObj.getCurrentPosition().x,5);
+     assertEquals(testObj.getCurrentPosition().y,6);
     }
 
     
