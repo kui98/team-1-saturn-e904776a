@@ -5,7 +5,11 @@ import java.awt.Point;
 public class GameController {
 
     static final String DEFAULT_CHARACTER_NAME = "Character";
-    Character avatar;
+     Character avatar;
+
+    public Character getAvatar(){
+        return avatar;
+    }
     public class GameStatus {
         // TODO: Add other status data
         public String characterName = DEFAULT_CHARACTER_NAME;
@@ -48,15 +52,21 @@ public class GameController {
     }
 
     public void move(DIRECTION directionToMove) {
-        // TODO: Implement move - should call something on another class
+        
         avatar.move(directionToMove);
-         status.currentPosition=new Point(avatar.getCurrentPosition().getX(), avatar.getCurrentPosition().getY());
-         status.moveCount=avatar.getMoveCount();
-        // TODO: Should probably also update the game results
+        status.currentPosition=new Point(avatar.getCurrentPosition().getX(), avatar.getCurrentPosition().getY());
+        status.moveCount=avatar.getMoveCount();
+        
     }
 
     public void setCharacterPosition(Point coordinates) {
-        // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+        
+        double xDouble = coordinates.getX();
+        int x = ((int)xDouble);
+        double yDouble = coordinates.getY();
+        int y = ((int)yDouble);
+        Position pos = new Position(x, y);
+        this.avatar.setCurrentPosition(pos);
     }
 
     public void setCurrentMoveCount(int moveCount) {

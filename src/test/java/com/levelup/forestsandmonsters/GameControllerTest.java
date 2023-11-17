@@ -7,6 +7,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import java.awt.Point;
+
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -51,6 +53,13 @@ public class GameControllerTest {
          assertTrue(testObj.status.moveCount==20);
          assertTrue(testObj.status.currentPosition.getX()==1);
          assertTrue(testObj.status.currentPosition.getY()==2);
+    }
+
+    public void setCharacterPositionTest(){
+        GameController testObj = new GameController();
+        testObj.setCharacterPosition(new Point(2, 3));
+        assertTrue(testObj.avatar.getCurrentPosition().getX()==2);
+        assertTrue(testObj.avatar.getCurrentPosition().getX()==3);
     }
 
 }

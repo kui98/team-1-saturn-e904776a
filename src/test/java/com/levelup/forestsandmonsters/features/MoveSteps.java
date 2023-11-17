@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import java.awt.Point;
 
 import com.levelup.forestsandmonsters.GameController;
+import com.levelup.forestsandmonsters.Position;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,12 +21,15 @@ public class MoveSteps {
 
     @Given("the character starts at position with XCoordinates {int}")
     public void givenTheCharacterStartsAtX(int startX) {
+        testObj.createCharacter(null);
         this.startX = startX;
+        this.testObj.getAvatar().getCurrentPosition().setX(startX);
     }
 
     @Given("starts at YCoordinates {int}") 
     public void givenTheCharacterStartsAtY(int startY) {
-        this.startY = startY;
+        //this.startY = startY;
+        this.testObj.getAvatar().getCurrentPosition().setY(startY);
     }
 
     @Given("the player chooses to move in {word}")
@@ -34,13 +39,17 @@ public class MoveSteps {
 
     @Given("the current move count is {int}")
     public void givenTheCurrentMoveCountIs(int currentMoveCount) {
+    
         testObj.setCurrentMoveCount(currentMoveCount);
+        
     }
 
     @When("the character moves")
     public void theCharacterMoves() {
         testObj.setCharacterPosition(new Point(this.startX, this.startY));
+        testObj.getAvatar().setCurrentPosition(new Position(this.startX, this.startY));
         testObj.move(this.direction);
+       
         GameController.GameStatus status = testObj.getStatus();
         this.currentPosition = status.currentPosition;
     }

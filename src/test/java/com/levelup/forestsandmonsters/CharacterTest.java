@@ -9,33 +9,33 @@ import org.mockito.Mockito;
 
 public class CharacterTest {
     @Test
-    public void initializationCreatesResults() {
+    public void IWantToSeeThatANewlyCreatedCharacterIsNotNull() {
         Character testObj = new Character();
         assertNotNull(testObj.name);
     }
 
     @Test
-    public void setName(){
+    public void IWantToBeAbleToSetMyCharactersName(){
         String charName = "New Name Saturn";
         Character testObj = new Character(charName);
         assertEquals(testObj.name, charName);
     }
 
     @Test
-    public void getName(){
+    public void iWantToSeeThatMyCharactersNameIsRecordedAndICanRetreiveIt(){
         String charName = "New Name Saturn";
         Character testObj = new Character(charName);
         assertEquals(testObj.getName(), charName);
     }
 
     @Test
-    public void getPosition(){
+    public void iWantToSeeThatMyBlankCharactersPositionIsNotNull(){
         Character testObj = new Character();
         assertNotNull(testObj.getCurrentPosition());
     }
 
     @Test
-    public void setPosition(){
+    public void iWantToSetANewPositionForMyCharacter(){
         Character testObj = new Character();
         Position pos=new Position();
         pos.x=2;
@@ -51,7 +51,7 @@ public class CharacterTest {
     }
 
     @Test
-    public void moveTest(){
+    public void iWantToSeeThatMyCharacterCanMove(){
         Character testObj = new Character();
         testObj.gameMap=new GameMapDouble();
        testObj.move(GameController.DIRECTION.NORTH);
