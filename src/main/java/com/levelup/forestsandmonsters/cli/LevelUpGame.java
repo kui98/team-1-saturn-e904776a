@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.levelup.GameMap;
 import com.levelup.forestsandmonsters.Character;
 import com.levelup.forestsandmonsters.GameController;
 import com.levelup.forestsandmonsters.GameController.GameStatus;
@@ -84,12 +85,29 @@ public class LevelUpGame {
   }
 
   public boolean validatecharactername(String providedcharactername) {
-    Pattern PATTERN = Pattern.compile("A-Za-z0-9 ");
+    Pattern PATTERN = Pattern.compile("^[a-zA-Z0-9 ]*$");
     Matcher matcher = PATTERN.matcher(providedcharactername);
     return matcher.matches();
   }
 
   public void startGameScreen(Character newCharacter) {
-    // TODO
+    GameMap gameMap=new GameMap();
+  
+
+
+    String name=newCharacter.getName();
+    int x=newCharacter.getCurrentPosition().getX();
+    int y=newCharacter.getCurrentPosition().getY();
+
+   print("Note: Press X to exit game\n"+
+   "Hello, "+name+", you are at Position ("+
+   x+","+y+")\n"+
+   "which direction do you want to move?\n"+
+   "Enter: (North, South, East, West)\n"+
+   "Waiting for input. . . .\n" 
+   );
+
+   String direction=getUserInput();
+   
   }
 }
