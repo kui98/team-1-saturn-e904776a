@@ -6,8 +6,8 @@ import org.springframework.shell.jline.PromptProvider;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LevelUpPrompt implements PromptProvider {
-    @Override
+public class LevelUpPrompt{
+    // @Override
     public AttributedString getPrompt() {
         return new AttributedString(
                 "Enter option :",
