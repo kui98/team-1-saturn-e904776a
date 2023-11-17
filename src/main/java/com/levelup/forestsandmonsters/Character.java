@@ -35,5 +35,8 @@ public class Character {
     public int getMoveCount() {
         return gameMap.getMoveCount();
     }
+    public void setMoveCount(int initialMoveCount) {
+         gameMap.setMoveCount(initialMoveCount);
+    }
     
 }

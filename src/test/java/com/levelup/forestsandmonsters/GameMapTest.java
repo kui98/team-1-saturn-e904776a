@@ -92,37 +92,43 @@ public class GameMapTest {
  @Test
     public void calculate_North_Increments_Y_or_j_ForAValidPosition() {
         GameMap TestGameMap = new GameMap();
+        TestGameMap.setMoveCount(2);
         Position currentPosition=new Position(2,3);
         Position NewPosition=TestGameMap.calculateNewPosition(currentPosition, DIRECTION.NORTH);
         assertEquals(NewPosition.getY(),4);
+        assertTrue(TestGameMap.getMoveCount()==3);
     
     }
     
     @Test
     public void calculate_South_Decrements_Y_or_j_ForAValidPosition() {
         GameMap TestGameMap = new GameMap();
+        TestGameMap.setMoveCount(2);
+        
         Position currentPosition=new Position(2,3);
         Position NewPosition=TestGameMap.calculateNewPosition(currentPosition, DIRECTION.SOUTH);
         assertEquals(NewPosition.getY(),2);
-    
+    assertTrue(TestGameMap.getMoveCount()==3);
     }
 
     @Test
     public void calculate_East_Increments_X_or_i_ForAValidPosition() {
         GameMap TestGameMap = new GameMap();
+        TestGameMap.setMoveCount(2);
         Position currentPosition=new Position(4,7);
         Position NewPosition=TestGameMap.calculateNewPosition(currentPosition, DIRECTION.EAST);
         assertEquals(NewPosition.getX(),5);
-    
+        assertTrue(TestGameMap.getMoveCount()==3);
     }
     
     @Test
     public void calculate_West_Decrements_X_or_i_ForAValidPosition() {
         GameMap TestGameMap = new GameMap();
+        TestGameMap.setMoveCount(2);
         Position currentPosition=new Position(4,7);
         Position NewPosition=TestGameMap.calculateNewPosition(currentPosition, DIRECTION.WEST);
         assertEquals(NewPosition.getX(),3);
-    
+        assertTrue(TestGameMap.getMoveCount()==3);
     }
 
     @Test
@@ -131,6 +137,14 @@ public class GameMapTest {
         Position currentPosition = new Position(9,9);
         Position newPosition = TestGameMap.calculateNewPosition(currentPosition, DIRECTION.NORTH);
         assertEquals(newPosition.getY(), currentPosition.getY());
+    }
+
+    @Test
+    public void icansetTheMoveCount(){
+        GameMap testGameMap = new GameMap();
+        testGameMap.setMoveCount(5);
+        assertEquals(testGameMap.getMoveCount(), 5);
+
     }
 
 }

@@ -20,7 +20,7 @@ public class GameMap {
         if (direction==DIRECTION.EAST) {
             newPosition.setX(newPosition.getX()+1);
         }
-        
+        moveCount++;
         if(this.isPositionValid(newPosition)) {
             return newPosition;
         }
@@ -30,6 +30,9 @@ public class GameMap {
         
     }
 
+    public void setMoveCount(int initialMoveCount) {
+         this.moveCount=initialMoveCount;
+    }
     public int getMoveCount() {
         return moveCount;
     }

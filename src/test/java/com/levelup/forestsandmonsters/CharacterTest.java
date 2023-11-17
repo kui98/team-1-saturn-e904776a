@@ -7,6 +7,8 @@ import static org.mockito.Mockito.atLeast;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import com.levelup.GameMap;
+
 public class CharacterTest {
     @Test
     public void IWantToSeeThatANewlyCreatedCharacterIsNotNull() {
@@ -57,6 +59,14 @@ public class CharacterTest {
        testObj.move(GameController.DIRECTION.NORTH);
        assertEquals(testObj.getCurrentPosition().x,5);
      assertEquals(testObj.getCurrentPosition().y,6);
+    }
+    @Test
+    public void setInitialMoveCount(){
+        int anyCount=5;
+        Character testObj = new Character();
+        testObj.gameMap=new GameMap();
+        testObj.setMoveCount(anyCount);
+        assertEquals(testObj.getMoveCount(), anyCount);
     }
 
     @Test

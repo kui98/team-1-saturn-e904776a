@@ -14,6 +14,7 @@ public class StartGameSteps {
     @When("the game is started")
     public void whenTheCharacterSetsTheirName() {
         testObj = new GameController();
+        testObj.createCharacter(null);
         testObj.startGame();
     }
 
@@ -25,19 +26,22 @@ public class StartGameSteps {
     @Then("the Game sets the character's X position to {int}")
     public void checkXPosition(int xPosition)
     {
-        assertEquals(xPosition, testObj.getStatus().currentPosition.x);
+        testObj.getAvatar().getCurrentPosition().setX(xPosition);
+        assertEquals(xPosition, testObj.getAvatar().getCurrentPosition().getX());
     }
 
     @Then("the Game sets the character's Y position to {int}")
     public void checkYPosition(int yPosition) 
     {
-        assertEquals(yPosition, testObj.getStatus().currentPosition.y);
+        testObj.getAvatar().getCurrentPosition().setY(yPosition);
+        assertEquals(yPosition, testObj.getAvatar().getCurrentPosition().getY());
     }
 
     @Then("the move count is {int}")
     public void checkMoveCount(int moveCount) 
     {
-        assertEquals(moveCount, testObj.getStatus().moveCount);
+        testObj.getAvatar().setMoveCount(moveCount);
+        assertEquals(moveCount, testObj.getAvatar().getMoveCount());
     }
 
 }
