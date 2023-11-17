@@ -21,6 +21,7 @@ public class GameControllerTest {
     public void initializationCreatesResults() {
         GameController testObj = new GameController();
         assertNotNull(testObj.status);
+        assertNotNull(testObj.avatar);
     }
 
     @Test
@@ -55,11 +56,17 @@ public class GameControllerTest {
          assertTrue(testObj.status.currentPosition.getY()==2);
     }
 
+    @Test
     public void setCharacterPositionTest(){
         GameController testObj = new GameController();
         testObj.setCharacterPosition(new Point(2, 3));
         assertTrue(testObj.avatar.getCurrentPosition().getX()==2);
-        assertTrue(testObj.avatar.getCurrentPosition().getX()==3);
+        assertTrue(testObj.avatar.getCurrentPosition().getY()==3);
     }
-
+    @Test
+    public void iCanValidateNumberOfPositionsOnMap(){
+        GameController testObj = new GameController();
+        
+        assertEquals(100, (testObj.avatar.gameMap.getMaxOfX()+1)*(testObj.getAvatar().gameMap.getMaxOfY()+1));
+    }
 }

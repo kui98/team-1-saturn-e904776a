@@ -22,6 +22,7 @@ public class GameController {
 
     public GameController() {
         status = new GameStatus();
+        createCharacter(null);
     }
 
     // TODO: Ensure this AND CLI commands match domain model
