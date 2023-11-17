@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 import com.levelup.GameMap;
 import com.levelup.forestsandmonsters.Character;
 import com.levelup.forestsandmonsters.GameController;
+import com.levelup.forestsandmonsters.Position;
+import com.levelup.forestsandmonsters.GameController.DIRECTION;
 import com.levelup.forestsandmonsters.GameController.GameStatus;
 
 import org.springframework.shell.Availability;
@@ -91,23 +93,34 @@ public class LevelUpGame {
   }
 
   public void startGameScreen(Character newCharacter) {
-    GameMap gameMap=new GameMap();
-  
+    GameMap gameMap = new GameMap();
 
+    while (true) {
 
-    String name=newCharacter.getName();
-    int x=newCharacter.getCurrentPosition().getX();
-    int y=newCharacter.getCurrentPosition().getY();
+      String name = newCharacter.getName();
+      int x = newCharacter.getCurrentPosition().getX();
+      int y = newCharacter.getCurrentPosition().getY();
 
-   print("Note: Press X to exit game\n"+
-   "Hello, "+name+", you are at Position ("+
-   x+","+y+")\n"+
-   "which direction do you want to move?\n"+
-   "Enter: (North, South, East, West)\n"+
-   "Waiting for input. . . .\n" 
-   );
+      print("Note: Press X to exit game\n" +
+          "Hello, " + name + ", you are at Position (" +
+          x + "," + y + ")\n" +
+          "which direction do you want to move?\n" +
+          "Enter: (North, South, East, West)\n" +
+          "Waiting for input. . . .\n");
 
-   String direction=getUserInput();
-   
+      String direction = getUserInput();
+      if (direction.equalsIgnoreCase("x")) {
+        break;
+      }
+      try {
+        DIRECTION currentDirection = DIRECTION.valueOf(direction.toUpperCase());
+
+        newCharacter.move(currentDirection);
+      } catch (Exception exception) {
+        print("---------->>> Invalid direction, try again.<<----------");
+      }
+    }
+    endGame();
+
   }
 }
