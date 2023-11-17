@@ -93,7 +93,6 @@ public class LevelUpGame {
   }
 
   public void startGameScreen(Character newCharacter) {
-    GameMap gameMap = new GameMap();
 
     while (true) {
 
@@ -120,7 +119,16 @@ public class LevelUpGame {
         print("---------->>> Invalid direction, try again.<<----------");
       }
     }
+    creditsScreen(newCharacter);
     endGame();
 
+  }
+
+  public void creditsScreen(Character newCharacter) {
+    int x = newCharacter.getCurrentPosition().getX();
+    int y = newCharacter.getCurrentPosition().getY();
+    int moveCount=newCharacter.getMoveCount();
+
+    print("You started at (5,5) and reached ("+x+","+y+") in "+moveCount+" moves");
   }
 }
